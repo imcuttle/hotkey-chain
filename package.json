@@ -1,0 +1,57 @@
+{
+  "name": "hotkey-chain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "The easy way to create shortcut",
+  "author": "imcuttle <moyuyc95@gmail.com>",
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "npm test",
+    "version": "npm run changelog",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "imcuttle",
+    "hotkey",
+    "chain",
+    "hotkey-chain"
+  ],
+  "typings": "index.d.ts",
+  "license": "MIT",
+  "repository": "imcuttle/hotkey-chain",
+  "jest": {
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).{t,j}s{x,}"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^25.1.1",
+    "conventional-changelog-cli": "^2.0.31",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  },
+  "dependencies": {
+    "is-hotkey": "^0.1.6",
+    "run-seq": "^1.0.4"
+  }
+}
